@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import GalaxyBackground from "./GalaxyBackground";
+
 const galaxyColors = [
   "#ffffff", "#00ffff", "#bf00ff", "#ff69b4", "#ff4500", "#39ff14", "#ffd700"
 ];
@@ -95,8 +95,6 @@ export default function CanvasBoard() {
       setHistory([]);
     }
   };
-
-  // ✅ Clear
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     const ctx = ctxRef.current;
@@ -106,7 +104,6 @@ export default function CanvasBoard() {
     setHistory([]);
   };
 
-  // ✅ Eraser
   const toggleEraser = () => {
     if (!isErasing) {
       ctxRef.current.strokeStyle = "black";
@@ -119,11 +116,11 @@ export default function CanvasBoard() {
   };
 
   return (
-  <GalaxyBackground >
+
     <div className="relative w-screen h-screen overflow-hidden">
-      <canvas
+     <canvas
         ref={canvasRef}
-        className="absolute top-0 left-0 z-0 touch-none"
+        className="fixed top-0 left-0 w-screen h-screen z-0 touch-none"
         onMouseDown={startDrawing}
         onMouseMove={draw}
         onMouseUp={stopDrawing}
@@ -132,12 +129,6 @@ export default function CanvasBoard() {
         onTouchMove={draw}
         onTouchEnd={stopDrawing}
       />
-
-      <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-10 text-white text-4xl font-bold drop-shadow-lg">
-        Portfolio
-      </div>
-
-
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 text-white space-y-4 text-center">
         <div className="flex gap-2 justify-center">
           {galaxyColors.map((color) => (
@@ -189,6 +180,5 @@ export default function CanvasBoard() {
         )}
       </div>
     </div> 
-    </GalaxyBackground>
   );
 }
