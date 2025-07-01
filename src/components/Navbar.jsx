@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
-import { FiMenu, FiX } from "react-icons/fi"; 
+import { FiMenu, FiX } from "react-icons/fi";
 
 const navItems = [
   { id: "about", label: "About" },
@@ -16,11 +16,19 @@ export default function Navbar({ showCanvas, setShowCanvas }) {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
+  const handleToggleCanvas = () => {
+    const newState = !showCanvas;
+    setShowCanvas(newState);
+    if (newState) {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100); 
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-md z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex justify-between items-center">
-
         <div className="text-white font-bold text-xl">Portfolio</div>
         <div className="hidden md:flex gap-6 items-center">
           {navItems.map((item) => (
@@ -43,7 +51,7 @@ export default function Navbar({ showCanvas, setShowCanvas }) {
           ))}
 
           <button
-            onClick={() => setShowCanvas((prev) => !prev)}
+            onClick={handleToggleCanvas}
             className={`px-3 py-1 rounded text-sm sm:text-base font-semibold transition ${
               showCanvas
                 ? "bg-yellow-500 text-black hover:bg-yellow-600"
@@ -63,7 +71,6 @@ export default function Navbar({ showCanvas, setShowCanvas }) {
         </button>
       </div>
 
-   
       {menuOpen && (
         <div className="md:hidden bg-black/90 px-6 py-4 space-y-4">
           {navItems.map((item) => (
@@ -90,10 +97,10 @@ export default function Navbar({ showCanvas, setShowCanvas }) {
 
           <button
             onClick={() => {
-              setShowCanvas((prev) => !prev);
+              handleToggleCanvas();
               closeMenu();
             }}
-            className={`w-full px-3 py-2 rounded text-sm font-semibold transition ${
+            className={`px-3 py-1 rounded text-sm sm:text-base font-semibold transition ${
               showCanvas
                 ? "bg-yellow-500 text-black hover:bg-yellow-600"
                 : "bg-gray-600 text-white hover:bg-gray-700"

@@ -1,9 +1,10 @@
+import { FaGithub } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 export default function About() {
 
   return (
     <div className="text-gray-300 text-center px-6 max-w-3xl mx-auto">
       <h1 className="text-5xl font-bold flex items-center justify-center gap-4 mb-6 text-white">
-      
         About Me
       </h1>
       <p className="text-lg leading-relaxed">
@@ -26,6 +27,24 @@ export default function About() {
         <span className="text-white font-semibold"> theatre and dramatics</span>,
         which has helped me grow as a communicator and performer.
       </p>
+      <div className="mt-6 flex justify-center gap-6 text-white text-2xl">
+        <a
+          href="https://github.com/harshi-khandelwal"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-gray-400 transition"
+        >
+          <FaGithub />
+        </a>
+        <a
+          href="https://leetcode.com/u/harshi_khandelwal/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-yellow-400 transition"
+        >
+          <SiLeetcode />
+        </a>
+      </div>
     </div>
   );
 }

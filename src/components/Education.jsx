@@ -2,7 +2,7 @@
 export default function Education() {
   const data = [
     {
-      year: "2026 (expected)",
+      year: "2026 (Pursuing)",
       degree: "B.Tech, Electrical Engineering",
       institute: "Netaji Subhas University of Technology",
       result: "7.53 / 10",
@@ -23,17 +23,15 @@ export default function Education() {
 
   return (
     <div className="text-gray-400 px-6 max-w-7xl mx-auto text-center">
-         <h1 className="text-5xl font-bold flex items-center justify-center gap-4 mb-6 text-white">
-     
+      <h1 className="text-5xl font-bold flex items-center justify-center gap-4 mb-6 text-white">
         Education
       </h1>
-     
 
       <div className="flex flex-col lg:flex-row items-stretch gap-6">
         {data.map((item, index) => (
           <div
             key={index}
-            className="w-full lg:w-1/3 h-full border border-gray-700 rounded-lg p-6 bg-black/40 backdrop-blur-sm shadow-md transition duration-300 hover:scale-105 flex flex-col justify-between"
+            className="flex flex-col justify-between w-full lg:w-1/3 min-h-[250px] border border-gray-700 rounded-lg p-6 bg-black/40 backdrop-blur-sm shadow-md transition duration-300 hover:scale-105"
           >
             <div>
               <h3 className="text-white text-xl font-semibold mb-1">
@@ -51,6 +49,3 @@ export default function Education() {
     </div>
   );
 }
-
-
-  

@@ -1,6 +1,6 @@
 import { FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
-import { FaMapMarkerAlt } from "react-icons/fa";
+
 
 export default function ContactMe() {
   const contactInfo = [
@@ -10,22 +10,19 @@ export default function ContactMe() {
       value: "linkedin.com/in/harshi-khandelwal",
       link: "https://linkedin.com/in/harshi-khandelwal-0b61b5316",
     },
-   
     {
       icon: <FaPhoneAlt className="text-green-400 text-2xl" />,
       label: "Phone",
       value: "+91 8700571839",
+      link: "tel:+918700571839",
     },
     {
       icon: <BiLogoGmail className="text-red-400 text-2xl" />,
       label: "Gmail",
       value: "harshikhandelwal.12a@gmail.com",
+      link: "mailto:harshikhandelwal.12a@gmail.com",
     },
-    {
-      icon: <FaMapMarkerAlt className="text-yellow-400 text-2xl" />,
-      label: "Location",
-      value: "New Delhi, India",
-    },
+   
   ];
 
   return (
@@ -47,7 +44,7 @@ export default function ContactMe() {
                 href={info.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white hover:underline transition"
+                className="text-gray-400 hover:text-white hover:underline transition break-words"
               >
                 {info.value}
               </a>
@@ -60,3 +57,4 @@ export default function ContactMe() {
     </div>
   );
 }
+
